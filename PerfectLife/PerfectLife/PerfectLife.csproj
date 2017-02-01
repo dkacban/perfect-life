@@ -36,6 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="BmiCalculatorPage.cs" />
+    <Compile Include="MenuPages\MenuLink.cs" />
+    <Compile Include="MenuPages\MenuPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
