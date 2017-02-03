@@ -10,6 +10,8 @@ namespace PerfectLife
 
     public class BmiCalculatorPage : ContentPage
     {
+        private ActivityIndicator activityIndicator;
+
         async void OnCalculateButtonClicked(object sender, EventArgs args)
         {
             var weightWithUnit = weightPicker.Items[weightPicker.SelectedIndex];
@@ -19,17 +21,24 @@ namespace PerfectLife
             var heightInCentimeters = double.Parse(heightWithUnit.Substring(0, heightWithUnit.Length - 3));
 
 
-            var apiUrl = $"http://bmicalcwebservice20170123012446.azurewebsites.net/api/bmi/{heightInCentimeters}/{weight}";
+            calculateButton.IsEnabled = false;
+            activityIndicator.IsRunning = true;
+            weightPicker.IsEnabled = false;
+            heightPicker.IsEnabled = false;
 
+            var apiUrl = $"http://bmicalcwebservice20170123012446.azurewebsites.net/api/bmi/{heightInCentimeters}/{weight}";
             using (HttpClient client = new HttpClient())
             using (HttpResponseMessage response = await client.GetAsync(apiUrl))
             using (HttpContent content = response.Content)
             {
-                calculateButton.IsEnabled = false;
                 string result = await content.ReadAsStringAsync();
                 resultLabel.Text = $"Twój wskaźnik BMI wynosi {result}";
-                calculateButton.IsEnabled = true;
             }
+
+            activityIndicator.IsRunning = false;
+            calculateButton.IsEnabled = true;
+            weightPicker.IsEnabled = true;
+            heightPicker.IsEnabled = true;
         }
 
         Picker weightPicker = new Picker();
@@ -61,13 +70,21 @@ namespace PerfectLife
                 heightPicker.SelectedIndex = 55;
             }
 
-            calculateButton.Clicked += this.OnCalculateButtonClicked;
+            calculateButton.Clicked += OnCalculateButtonClicked;
 
+            activityIndicator = new ActivityIndicator
+            {
+                IsRunning = false,
+                Color = Color.Red,
+
+            };
 
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Children = {
+                    activityIndicator,
+
                     new Label {
                         HorizontalTextAlignment = TextAlignment.Center,
                         Text = "Sprawdź swój BMI"
