@@ -13,7 +13,8 @@ namespace PerfectLife
         public static MasterDetailPage MasterDetailPage;
 
         public App()
-        {
+        {   
+
             MasterDetailPage = new MasterDetailPage
             {
                 Master = new MenuPage(),

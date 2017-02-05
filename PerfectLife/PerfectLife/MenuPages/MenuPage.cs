@@ -20,7 +20,8 @@ namespace PerfectLife.MenuPages
                 }
             };
             Title = "Master";
-            BackgroundColor = Color.Gray.WithLuminosity(0.9);
+            BackgroundColor = Color.Gray;
+            Icon = "menu.png";
         }
     }
 }
