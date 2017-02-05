@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.kacban.perfectlife" android:versionName="1.14" android:versionCode="14">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.kacban.perfectlife" android:versionName="1.15" android:versionCode="16">
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="22" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application android:label="Perfect Life" android:icon="@drawable/icon"></application>

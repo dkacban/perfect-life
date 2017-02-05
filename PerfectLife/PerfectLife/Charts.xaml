@@ -7,16 +7,16 @@
     <chart:SfChart.PrimaryAxis>
       <chart:CategoryAxis LabelRotationAngle = "-45">
         <chart:CategoryAxis.Title>
-          <chart:ChartAxisTitle Text ="Date"/>
+          <chart:ChartAxisTitle Text ="Date" />
         </chart:CategoryAxis.Title>
       </chart:CategoryAxis>
     </chart:SfChart.PrimaryAxis>
     <chart:SfChart.SecondaryAxis>
       <chart:NumericalAxis>
         <chart:NumericalAxis.Title>
-          <chart:ChartAxisTitle Text ="Count"/>
+          <chart:ChartAxisTitle Text ="Count" />
         </chart:NumericalAxis.Title>
       </chart:NumericalAxis>
-    </chart:SfChart.SecondaryAxis> 
+    </chart:SfChart.SecondaryAxis>
   </chart:SfChart>
 </ContentPage>
