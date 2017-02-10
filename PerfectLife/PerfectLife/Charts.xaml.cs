@@ -7,6 +7,7 @@ namespace PerfectLife
         public Charts()
         {
             InitializeComponent();
+            BindingContext = new StatsViewModel();
         }
     }
 }

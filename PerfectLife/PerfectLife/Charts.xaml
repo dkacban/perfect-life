@@ -14,9 +14,27 @@
     <chart:SfChart.SecondaryAxis>
       <chart:NumericalAxis>
         <chart:NumericalAxis.Title>
-          <chart:ChartAxisTitle Text ="Count" />
+          <chart:ChartAxisTitle Text ="BMI value" />
         </chart:NumericalAxis.Title>
       </chart:NumericalAxis>
     </chart:SfChart.SecondaryAxis>
+    <chart:SfChart.Series>
+      <chart:StackingColumnSeries
+          ItemsSource="{Binding BmiData}"
+          XBindingPath="Date"
+          YBindingPath="Bmi"
+          Label="BMI"
+          DataMarkerPosition = "Center"
+          EnableDataPointSelection = "false"
+          Color="#FF8D00">
+        <chart:StackingColumnSeries.DataMarker>
+          <chart:ChartDataMarker>
+            <chart:ChartDataMarker.LabelStyle>
+              <chart:DataMarkerLabelStyle LabelPosition = "Center"/>
+            </chart:ChartDataMarker.LabelStyle>
+          </chart:ChartDataMarker>
+        </chart:StackingColumnSeries.DataMarker>
+      </chart:StackingColumnSeries>
+      </chart:SfChart.Series>
   </chart:SfChart>
 </ContentPage>
