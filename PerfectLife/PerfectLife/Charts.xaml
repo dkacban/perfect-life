@@ -7,14 +7,14 @@
     <chart:SfChart.PrimaryAxis>
       <chart:CategoryAxis LabelRotationAngle = "-45">
         <chart:CategoryAxis.Title>
-          <chart:ChartAxisTitle Text ="Date" />
+          <chart:ChartAxisTitle Text ="Data" />
         </chart:CategoryAxis.Title>
       </chart:CategoryAxis>
     </chart:SfChart.PrimaryAxis>
     <chart:SfChart.SecondaryAxis>
       <chart:NumericalAxis>
         <chart:NumericalAxis.Title>
-          <chart:ChartAxisTitle Text ="BMI value" />
+          <chart:ChartAxisTitle Text ="BMI" />
         </chart:NumericalAxis.Title>
       </chart:NumericalAxis>
     </chart:SfChart.SecondaryAxis>
@@ -26,7 +26,7 @@
           Label="BMI"
           DataMarkerPosition = "Center"
           EnableDataPointSelection = "false"
-          Color="#FF8D00">
+          Color="#04389c">
         <chart:StackingColumnSeries.DataMarker>
           <chart:ChartDataMarker>
             <chart:ChartDataMarker.LabelStyle>
