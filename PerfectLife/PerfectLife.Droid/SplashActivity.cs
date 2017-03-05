@@ -20,7 +20,6 @@ namespace PerfectLife.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            System.Threading.Thread.Sleep(3000);
             this.StartActivity(typeof(MainActivity));
         }
     }

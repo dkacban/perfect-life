@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectLife.Droid", "PerfectLife\PerfectLife.Droid\PerfectLife.Droid.csproj", "{095A1F7A-B4EB-442B-BEC7-E186AE297794}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "perfectlife.droid", "PerfectLife\PerfectLife.Droid\perfectlife.droid.csproj", "{095A1F7A-B4EB-442B-BEC7-E186AE297794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectLife.iOS", "PerfectLife\PerfectLife.iOS\PerfectLife.iOS.csproj", "{CCEF38E4-8EA6-4140-83C4-74ECE3721F7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "perfectlife.ios", "PerfectLife\PerfectLife.iOS\perfectlife.ios.csproj", "{CCEF38E4-8EA6-4140-83C4-74ECE3721F7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectLife", "PerfectLife\PerfectLife\PerfectLife.csproj", "{68E53AA6-33EE-4553-A6B0-26B9D558C25E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "perfectlife", "PerfectLife\PerfectLife\perfectlife.csproj", "{68E53AA6-33EE-4553-A6B0-26B9D558C25E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

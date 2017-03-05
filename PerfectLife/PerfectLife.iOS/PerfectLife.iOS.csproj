@@ -138,9 +138,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PerfectLife\PerfectLife.csproj">
+    <ProjectReference Include="..\PerfectLife\perfectlife.csproj">
       <Project>{68E53AA6-33EE-4553-A6B0-26B9D558C25E}</Project>
-      <Name>PerfectLife</Name>
+      <Name>perfectlife</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
