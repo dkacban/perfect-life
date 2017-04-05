@@ -7,15 +7,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using PerfectLife.Views;
 using PerfectLife.Models;
-using Android.Content;
-using Android.Support.CustomTabs;
-using System;
-using System.Json;
-using System.Threading.Tasks;
-using Android.App;
-using Android.Widget;
-using Android.OS;
-
 
 [assembly: ExportRenderer (typeof(AuthenticationPage), typeof(PerfectLife.Droid.Renderers.AuthenticationPageRenderer))]
 

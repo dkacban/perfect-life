@@ -181,3 +181,4 @@ FakesAssemblies/
 
 *.userprefs
 .DS_Store
+PerfectLife/Constants.cs
