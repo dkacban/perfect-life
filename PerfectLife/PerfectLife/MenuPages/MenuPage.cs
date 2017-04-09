@@ -17,8 +17,9 @@ namespace PerfectLife.MenuPages
                 Padding = new Thickness(0, Device.OnPlatform(20, 0, 0), 0, 0),
                 Children =
                 {
-                    new MenuLink("Kalkulator BMI", new BmiCalculatorPage()),
-                    new MenuLink("Statystyki", new Charts())
+                    new MenuLink("Logowanie", new LoginPage()),
+                    new MenuLink("Moja waga", new BmiCalculatorPage()),
+                    new MenuLink("Statystyki", new Charts()),
                 }
             };
             Title = "Master";

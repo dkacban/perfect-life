@@ -1,6 +1,6 @@
 ﻿# language: pl
 
-Właściwość:
+Właściwość: KontrolowanieWagi
 	Jako użytkownik aplikacji mobilnej 
 	chcę korzystać z formularza rejestracji wagi
 	aby śledzić jak zmienia się moja waga podczas treningu

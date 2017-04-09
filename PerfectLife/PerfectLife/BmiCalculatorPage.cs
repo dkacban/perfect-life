@@ -18,32 +18,25 @@ namespace PerfectLife
             var weightWithUnit = weightPicker.Items[weightPicker.SelectedIndex];
             var weight = int.Parse(weightWithUnit.Substring(0, weightWithUnit.Length - 3));
 
-            var heightWithUnit = heightPicker.Items[heightPicker.SelectedIndex];
-            var heightInCentimeters = double.Parse(heightWithUnit.Substring(0, heightWithUnit.Length - 3));
-
-
             calculateButton.IsEnabled = false;
             activityIndicator.IsRunning = true;
             weightPicker.IsEnabled = false;
-            heightPicker.IsEnabled = false;
 
-            var apiUrl = $"http://bmicalcwebservice20170123012446.azurewebsites.net/api/bmi/{heightInCentimeters}/{weight}";
+            var apiUrl = $"http://bmicalcwebservice20170123012446.azurewebsites.net/api/bmi/190/{weight}";
             using (HttpClient client = new HttpClient())
             using (HttpResponseMessage response = await client.GetAsync(apiUrl))
             using (HttpContent content = response.Content)
             {
                 string result = await content.ReadAsStringAsync();
-                resultLabel.Text = $"Twój wskaźnik BMI wynosi {result}";
+                resultLabel.Text = $"Twoja waga wynosi: {result}";
             }
 
             activityIndicator.IsRunning = false;
             calculateButton.IsEnabled = true;
             weightPicker.IsEnabled = true;
-            heightPicker.IsEnabled = true;
         }
 
         Picker weightPicker = new Picker();
-        Picker heightPicker = new Picker();
 
         Button calculateButton = new Button
         {
@@ -62,13 +55,7 @@ namespace PerfectLife
             for (int i = 40; i <= 180; i++)
             {
                 weightPicker.Items.Add(i + " KG");
-                weightPicker.SelectedIndex = 40;
-            }
-
-            for (int i = 120; i <= 200; i++)
-            {
-                heightPicker.Items.Add(i + " CM");
-                heightPicker.SelectedIndex = 55;
+                weightPicker.SelectedIndex = 50;
             }
 
             calculateButton.Clicked += OnCalculateButtonClicked;
@@ -88,7 +75,12 @@ namespace PerfectLife
 
                     new Label {
                         HorizontalTextAlignment = TextAlignment.Center,
-                        Text = "Sprawdź swój BMI"
+                        Text = "Witaj " + App.User.Email
+                    },
+
+                    new Label {
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        Text = "Wprowadź swoją dzisiejszą wagę"
                     },
 
                     new StackLayout
@@ -108,19 +100,6 @@ namespace PerfectLife
                                         Text = "Waga"
                                     },
                                     weightPicker
-                                }
-                            },
-                            new StackLayout
-                            {
-                                VerticalOptions = LayoutOptions.Center,
-                                Orientation = StackOrientation.Horizontal,
-                                Children =
-                                {
-                                    new Label
-                                    {
-                                        Text = "Wzrost"
-                                    },
-                                    heightPicker
                                 }
                             },
                             calculateButton,

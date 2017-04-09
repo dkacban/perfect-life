@@ -12,11 +12,7 @@ namespace PerfectLife.Views
     {
         public AuthenticationPage()
         {
-            //DisplayAlert("ok", "ok", "ok");
-
             InitializeComponent();
-
-            //DisplayAlert("ok1", "ok1", "ok1");
         }
     }
 }

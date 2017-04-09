@@ -2,7 +2,7 @@
 using System.Linq;
 using Xamarin.Forms;
 using PerfectLife.Models;
-using PerfectLife.Views;
+using PerfectLife.MenuPages;
 
 namespace PerfectLife
 {
@@ -34,15 +34,6 @@ namespace PerfectLife
 
                     if (IsLoggedIn)
                     {
-
-                        //        MasterDetailPage = new MasterDetailPage
-                        //        {
-                        //            Master = new MenuPage(),
-                        //            Detail = new NavigationPage(new BmiCalculatorPage())
-                        //        };
-
-                        //        MainPage = MasterDetailPage;
-
                         NavPage.Navigation.InsertPageBefore(new BmiCalculatorPage(), NavPage.Navigation.NavigationStack.First());
                         NavPage.Navigation.PopToRootAsync();
                     }
@@ -54,39 +45,25 @@ namespace PerfectLife
         {
             User = new User();
 
-            NavPage = new NavigationPage(new LoginPage());
-            MainPage = NavPage;
+            Page MasterDetailPage = new MasterDetailPage
+            {
+                Master = new MenuPage(),
+                Detail = new NavigationPage(new BmiCalculatorPage())
+            };
+
+            MainPage = MasterDetailPage;
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
         }
     }
-    //public class App : Application
-    //{
-    //    public static MasterDetailPage MasterDetailPage;
-
-    //    public App()
-    //    {   
-
-    //        MasterDetailPage = new MasterDetailPage
-    //        {
-    //            Master = new MenuPage(),
-    //            Detail = new NavigationPage(new BmiCalculatorPage())
-    //        };
-
-    //        MainPage = MasterDetailPage;
-    //    }
-    //}
 }

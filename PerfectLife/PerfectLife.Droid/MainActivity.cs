@@ -1,12 +1,6 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using Syncfusion.SfChart;
 
 namespace PerfectLife.Droid
 {
@@ -20,8 +14,7 @@ namespace PerfectLife.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             new Syncfusion.SfChart.XForms.Droid.SfChartRenderer();
 
-            LoadApplication(new App());
-
+            LoadApplication(new App())
         }
     }
 }

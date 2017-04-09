@@ -18,20 +18,20 @@ namespace Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("")]
-    public partial class Feature
+    [NUnit.Framework.DescriptionAttribute("KontrolowanieWagi")]
+    public partial class KontrolowanieWagiFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "RegisterWeight.feature"
+#line 1 "MeasureWeight.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pl"), "", "\tJako użytkownik aplikacji mobilnej \r\n\tchcę korzystać z formularza rejestracji wa" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pl"), "KontrolowanieWagi", "\tJako użytkownik aplikacji mobilnej \r\n\tchcę korzystać z formularza rejestracji wa" +
                     "gi\r\n\taby śledzić jak zmienia się moja waga podczas treningu", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
