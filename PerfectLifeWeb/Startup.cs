@@ -18,6 +18,8 @@ namespace PerfectLifeWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore();
+            //Add formatters to avoid HTTP 406 error
+            services.AddMvcCore().AddJsonFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
