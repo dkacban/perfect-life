@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+
 namespace PerfectLifeWeb
 {
     public class Startup
@@ -34,6 +35,7 @@ namespace PerfectLifeWeb
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+//                app.UseBrowserLink();
             }
 
             app.Run(async (context) =>
