@@ -14,7 +14,7 @@ namespace PerfectLife.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             new Syncfusion.SfChart.XForms.Droid.SfChartRenderer();
 
-            LoadApplication(new App())
+            LoadApplication(new App());
         }
     }
 }
