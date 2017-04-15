@@ -1,31 +1,32 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using PerfectLifeWebService.Model;
 
 namespace PerfectLifeWebService.Controllers
 {
     [Route("api/[controller]")]
     public class WeightController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        public WeightController(IWeightRepository repository)
         {
-            return new string[] { "value1", "value2" };
+
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]string userName, [FromBody]int weight)
         {
+        }
+
+        [HttpGet]
+        public IEnumerable<WeightRecord> Get(string user)
+        {
+            return new WeightRecord[]
+            {
+                new WeightRecord("user1", 80),
+                new WeightRecord("user1", 79),
+                new WeightRecord("user1", 78),
+                new WeightRecord("user1", 77),
+            };
         }
     }
 }

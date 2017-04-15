@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 
-namespace PerfectLifeWeb
+namespace PerfectLifeWebService
 {
     public class Startup
     {
@@ -17,7 +17,6 @@ namespace PerfectLifeWeb
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore();
             //Add formatters to avoid HTTP 406 error
             services.AddMvcCore().AddJsonFormatters();
         }
