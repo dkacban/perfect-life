@@ -5,16 +5,16 @@ namespace PerfectLifeWebService.Model
 {
     public class WeightRecordInMemoryRepository : IWeightRecordRepository
     {
-        private IEnumerable<WeightRecord> _weightRecords = new List<WeightRecord>();
+        private List<WeightRecord> _weightRecords = new List<WeightRecord>();
 
         public void AddRecord(WeightRecord record)
         {
-            _weightRecords.Append(record);
+            _weightRecords.Add(record);
         }
 
         public IEnumerable<WeightRecord> GetRecords(string userName)
         {
-            return _weightRecords;
+            return _weightRecords.Where(r=>r.UserName == userName);
         }
     }
 }

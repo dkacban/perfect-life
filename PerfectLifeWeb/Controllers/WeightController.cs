@@ -27,13 +27,7 @@ namespace PerfectLifeWebService.Controllers
         [HttpGet]
         public IEnumerable<WeightRecord> Get(string userName)
         {
-            return new WeightRecord[]
-            {
-                new WeightRecord("user1", 80),
-                new WeightRecord("user1", 79),
-                new WeightRecord("user1", 78),
-                new WeightRecord("user1", 77),
-            };
+            return _repository.GetRecords(userName);
         }
     }
 }
