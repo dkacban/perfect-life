@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace PerfectLifeWebService.Model
 {
-    interface IWeightRecordRepository
+    public interface IWeightRecordRepository
     {
-        void AddRecord();
+        void AddRecord(WeightRecord record);
+        void GetRecords(string userName);
     }
 }

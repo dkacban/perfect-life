@@ -7,18 +7,25 @@ namespace PerfectLifeWebService.Controllers
     [Route("api/[controller]")]
     public class WeightController : Controller
     {
-        public WeightController(IWeightRepository repository)
-        {
+        IWeightRecordRepository _repository;
 
+        public WeightController() : this(new WeightRecordInMemoryRepository())
+        {
+        }
+
+        public WeightController(IWeightRecordRepository repository)
+        {
+            _repository = repository;
         }
 
         [HttpPost]
         public void Post([FromBody]string userName, [FromBody]int weight)
         {
+            _repository.AddRecord(new WeightRecord(userName, weight));
         }
 
         [HttpGet]
-        public IEnumerable<WeightRecord> Get(string user)
+        public IEnumerable<WeightRecord> Get(string userName)
         {
             return new WeightRecord[]
             {
