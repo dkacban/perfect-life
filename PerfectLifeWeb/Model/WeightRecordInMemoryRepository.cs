@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PerfectLifeWebService.Model
 {
     public class WeightRecordInMemoryRepository : IWeightRecordRepository
     {
+        private IEnumerable<WeightRecord> _weightRecords = new List<WeightRecord>();
+
         public void AddRecord(WeightRecord record)
         {
-            throw new NotImplementedException();
+            _weightRecords.Append(record);
         }
 
-        public void GetRecords(string userName)
+        public IEnumerable<WeightRecord> GetRecords(string userName)
         {
-            throw new NotImplementedException();
+            return _weightRecords;
         }
     }
 }

@@ -8,6 +8,6 @@ namespace PerfectLifeWebService.Model
     public interface IWeightRecordRepository
     {
         void AddRecord(WeightRecord record);
-        void GetRecords(string userName);
+        IEnumerable<WeightRecord> GetRecords(string userName);
     }
 }
