@@ -17,6 +17,7 @@ namespace PerfectLifeWebService
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
+                .UseUrls("http://localhost:6000")
                 .Build();
 
             host.Run();
