@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using PerfectLifeWebService.Model;
 
 namespace PerfectLifeWebService
 {
@@ -19,6 +19,7 @@ namespace PerfectLifeWebService
         {
             //Add formatters to avoid HTTP 406 error
             services.AddMvcCore().AddJsonFormatters();
+            services.AddSingleton<IWeightRecordRepository, WeightRecordInMemoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

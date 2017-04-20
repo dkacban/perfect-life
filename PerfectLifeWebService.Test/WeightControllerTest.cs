@@ -12,7 +12,7 @@ namespace PerfectLifeWebService.Test
         [Fact]
         public void ShouldAddAndRetrieveDataFromrepository()
         {
-            var controller = new WeightController();
+            var controller = new WeightController(new WeightRecordInMemoryRepository());
             controller.Post("user1", 80);
             controller.Post("user1", 79);
             controller.Post("user1", 78);
