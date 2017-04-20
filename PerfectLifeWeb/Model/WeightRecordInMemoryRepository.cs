@@ -5,7 +5,7 @@ namespace PerfectLifeWebService.Model
 {
     public class WeightRecordInMemoryRepository : IWeightRecordRepository
     {
-        private List<WeightRecord> _weightRecords = new List<WeightRecord>();
+        private static List<WeightRecord> _weightRecords = new List<WeightRecord>();
 
         public void AddRecord(WeightRecord record)
         {
