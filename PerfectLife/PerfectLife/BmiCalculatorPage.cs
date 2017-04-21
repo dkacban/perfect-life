@@ -21,8 +21,9 @@ namespace PerfectLife
             calculateButton.IsEnabled = false;
             activityIndicator.IsRunning = true;
             weightPicker.IsEnabled = false;
+            var userName = "darek";
 
-            var apiUrl = $"http://bmicalcwebservice20170123012446.azurewebsites.net/api/bmi/190/{weight}";
+            var apiUrl = $"http://{Constants.WebServiceServer}/api/weight/userName={userName}weight={weight}";
             using (HttpClient client = new HttpClient())
             using (HttpResponseMessage response = await client.GetAsync(apiUrl))
             using (HttpContent content = response.Content)

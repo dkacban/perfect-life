@@ -45,6 +45,7 @@
     <Compile Include="MenuPages\MenuPage.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PerfectLifeWebServiceClient.cs" />
     <Compile Include="StatsViewModel.cs" />
     <Compile Include="Text.Designer.cs">
       <AutoGen>True</AutoGen>

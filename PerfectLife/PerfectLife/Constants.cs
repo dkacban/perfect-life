@@ -6,6 +6,9 @@
         public static string ClientId = "";
         public static string ClientSecret = "";
 
+        //Web Service
+        public static string WebServiceServer = "";
+
         // These values do not need changing
         public static string Scope = "https://www.googleapis.com/auth/userinfo.email";
         public static string AuthorizeUrl = "https://accounts.google.com/o/oauth2/auth";
