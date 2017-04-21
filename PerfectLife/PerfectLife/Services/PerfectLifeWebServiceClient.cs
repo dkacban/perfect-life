@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using PerfectLife;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Threading;
 
 namespace perfectlife.Services
 {
@@ -27,9 +30,18 @@ namespace perfectlife.Services
 
         }
 
-        public IEnumerable<WeightRecord> GetRecords(string userName)
+        public async Task<List<WeightRecord>> GetRecords(string userName)
         {
             var result = new List<WeightRecord>();
+
+            var apiUrl = $"http://{Constants.WebServiceServer}/api/weight?userName={userName}";
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = await client.GetAsync(apiUrl))
+            using (HttpContent content = response.Content)
+            {
+                string webRequestResult = await content.ReadAsStringAsync();
+            }
+
 
             return result;
         }

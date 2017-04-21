@@ -14,9 +14,13 @@ namespace PerfectLife.Test
 
         }
 
+        [Fact]
         public void ShouldReadRecordCollection()
         {
+            var service = new PerfectLifeWebServiceClient();
+            var result = service.GetRecords("darek");
 
+            Assert.Equal(1, result.Result.Count);
         }
 
 
