@@ -4,15 +4,13 @@ using perfectlife.Services;
 
 namespace perfectlife.test
 {
+    //Integration test - it hits real web service
     public class PerfectLifeWebServiceClientTest
     {
         [Fact]
         public void ShouldAddSingleRecord()
         {
-            var service = new PerfectLifeWebServiceClient();
-            var resut = service.GetRecords("darek");
-            Assert.Equal(1, resut.Result.Count);
-
+            //TODO using tdd
         }
 
         [Fact]
@@ -20,10 +18,8 @@ namespace perfectlife.test
         {
             var service = new PerfectLifeWebServiceClient();
             var result = service.GetRecords("darek");
-
+            Assert.Equal(1, result.Result.Count);
         }
-
-
     }
 
 }

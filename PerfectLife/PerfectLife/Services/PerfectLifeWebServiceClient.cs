@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Threading;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace perfectlife.Services
 {
@@ -32,19 +34,20 @@ namespace perfectlife.Services
 
         public async Task<List<WeightRecord>> GetRecords(string userName)
         {
-            var result = new List<WeightRecord>();
+            List<WeightRecord> result;
 
             var apiUrl = $"http://{Constants.WebServiceServer}/api/weight?userName={userName}";
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.GetAsync(apiUrl);
 
-
                 using (HttpContent content = response.Content)
                 {
                     string webRequestResult = await content.ReadAsStringAsync();
+                    JArray jsonObject = JArray.Parse(webRequestResult);
+                    var deserialized = JsonConvert.DeserializeObject<List<WeightRecord>>(jsonObject.ToString());
+                    result = deserialized;
                 }
-
             }
 
             return result;
