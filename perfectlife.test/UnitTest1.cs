@@ -2,7 +2,7 @@
 using Xunit;
 using perfectlife.Services;
 
-namespace PerfectLife.Test
+namespace perfectlife.test
 {
     public class PerfectLifeWebServiceClientTest
     {
@@ -10,7 +10,8 @@ namespace PerfectLife.Test
         public void ShouldAddSingleRecord()
         {
             var service = new PerfectLifeWebServiceClient();
-
+            var resut = service.GetRecords("darek");
+            Assert.Equal(1, resut.Result.Count);
 
         }
 
@@ -20,9 +21,9 @@ namespace PerfectLife.Test
             var service = new PerfectLifeWebServiceClient();
             var result = service.GetRecords("darek");
 
-            Assert.Equal(1, result.Result.Count);
         }
 
 
     }
+
 }
