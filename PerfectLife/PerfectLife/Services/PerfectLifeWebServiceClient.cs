@@ -8,28 +8,34 @@ using System.Net.Http;
 using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace perfectlife.Services
 {
-    public class PerfectLifeWebServiceClient
+    public class WeightRecord
     {
-        public class WeightRecord
+        public WeightRecord(string userName, int weight)
         {
-            public WeightRecord(string userName, int weight)
-            {
-                UserName = userName;
-                Weight = weight;
-                DateTime = DateTime.UtcNow;
-            }
-
-            public string UserName { get; private set; }
-            public int Weight { get; private set; }
-            public DateTime DateTime { get; private set; }
+            UserName = userName;
+            Weight = weight;
+            DateTime = DateTime.UtcNow;
         }
 
-        public void AddRecord(WeightRecord record)
-        {
+        public string UserName { get; private set; }
+        public int Weight { get; private set; }
+        public DateTime DateTime { get; private set; }
+    }
 
+    public class PerfectLifeWebServiceClient
+    {
+        public async Task<HttpStatusCode> AddRecord(WeightRecord record)
+        {
+            var apiUrl = $"http://{Constants.WebServiceServer}/api/weight?userName={record.UserName}&weight={record.Weight}";
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.PostAsync(apiUrl, null);
+                return response.StatusCode;
+            }
         }
 
         public async Task<List<WeightRecord>> GetRecords(string userName)

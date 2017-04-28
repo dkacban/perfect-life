@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 using perfectlife.Services;
+using System.Net;
 
 namespace perfectlife.test
 {
@@ -8,17 +9,19 @@ namespace perfectlife.test
     public class PerfectLifeWebServiceClientTest
     {
         [Fact]
-        public void ShouldAddSingleRecord()
+        public void NumberOfRecordsShouldIncreaseWhenIAddRecord()
         {
-            //TODO using tdd
-        }
-
-        [Fact]
-        public void ShouldReadRecordCollection()
-        {
+            var userName = "test-user";
             var service = new PerfectLifeWebServiceClient();
-            var result = service.GetRecords("darek");
-            Assert.Equal(1, result.Result.Count);
+
+            var records1 = service.GetRecords(userName).Result.Count;
+
+            var record = new WeightRecord(userName, 80);
+            var result = service.AddRecord(record);
+            Assert.Equal(HttpStatusCode.OK, result.Result);
+
+            var records2 = service.GetRecords(userName).Result.Count;
+            Assert.Equal(records1 + 1, records2);
         }
     }
 
