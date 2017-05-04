@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Xamarin.Forms;
+using perfectlife.Services;
 
 namespace PerfectLife
 {
@@ -21,16 +22,11 @@ namespace PerfectLife
             calculateButton.IsEnabled = false;
             activityIndicator.IsRunning = true;
             weightPicker.IsEnabled = false;
-            var userName = "darek";
 
-            var apiUrl = $"http://{Constants.WebServiceServer}/api/weight?userName={userName}weight={weight}";
-            using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(apiUrl))
-            using (HttpContent content = response.Content)
-            {
-                string result = await content.ReadAsStringAsync();
-                resultLabel.Text = $"Twoja waga wynosi: {result}";
-            }
+            var client = new PerfectLifeWebServiceClient();
+            await client.AddRecord(new WeightRecord(userName:App.User.Email, weight:weight));
+
+            resultLabel.Text = $"Dzięki. Twoja waga została zapisana!";
 
             activityIndicator.IsRunning = false;
             calculateButton.IsEnabled = true;
@@ -41,7 +37,7 @@ namespace PerfectLife
 
         Button calculateButton = new Button
         {
-            Text = "Oblicz"
+            Text = "Zapisz"
         };
 
         Label resultLabel = new Label

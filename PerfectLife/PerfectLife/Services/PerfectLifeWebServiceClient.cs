@@ -45,7 +45,8 @@ namespace perfectlife.Services
             var apiUrl = $"http://{Constants.WebServiceServer}/api/weight?userName={userName}";
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                HttpResponseMessage response = Task.Run(() => client.GetAsync(apiUrl)).Result;
 
                 using (HttpContent content = response.Content)
                 {

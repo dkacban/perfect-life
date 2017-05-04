@@ -26,6 +26,7 @@ namespace PerfectLife.Droid.Renderers
             var accounts = AccountStore.Create(Context).FindAccountsForService(App.AppName);
             var account = accounts.FirstOrDefault();
 
+
             if (account == null)
             {
                 if (!isShown)
@@ -53,7 +54,7 @@ namespace PerfectLife.Droid.Renderers
                 if (!isShown)
                 {
                     App.User.Email = account.Username;
-                    App.SuccessfulLoginAction.Invoke();
+                    (App.Current as App).SuccessfulLoginAction.Invoke();
                 }
             }
         }
@@ -78,7 +79,7 @@ namespace PerfectLife.Droid.Renderers
             }
             // If the user is logged in navigate to the TodoList page.
             // Otherwise allow another login attempt.
-            App.SuccessfulLoginAction.Invoke();
+            (App.Current as App).SuccessfulLoginAction.Invoke();
         }
     }
 }

@@ -14,7 +14,7 @@
     <chart:SfChart.SecondaryAxis>
       <chart:NumericalAxis>
         <chart:NumericalAxis.Title>
-          <chart:ChartAxisTitle Text ="BMI" />
+          <chart:ChartAxisTitle Text ="Waga" />
         </chart:NumericalAxis.Title>
       </chart:NumericalAxis>
     </chart:SfChart.SecondaryAxis>
@@ -22,8 +22,8 @@
       <chart:StackingColumnSeries
           ItemsSource="{Binding BmiData}"
           XBindingPath="Date"
-          YBindingPath="Bmi"
-          Label="BMI"
+          YBindingPath="Weight"
+          Label="Waga"
           DataMarkerPosition = "Center"
           EnableDataPointSelection = "false"
           Color="#04389c">

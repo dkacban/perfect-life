@@ -4,22 +4,34 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using perfectlife.Services;
 
 namespace PerfectLife
 {
     public class DataPoint
     {
         public string Date { get; set; }
-        public double Bmi { get; set; }
+        public double Weight { get; set; }
     }
 
     public class StatsViewModel
     {
-        public ObservableCollection<DataPoint> BmiData => new ObservableCollection<DataPoint>
+        IEnumerable<DataPoint> _records;
+
+        public StatsViewModel()
         {
-            new DataPoint {Date = "29/11/2017", Bmi = 27.01},
-            new DataPoint {Date = "30/10/2017", Bmi = 25.70},
-            new DataPoint {Date = "31/09/2017", Bmi = 22.45}
-        };
+
+        }
+
+        public ObservableCollection<DataPoint> BmiData
+        {
+            get
+            {
+                var client = new PerfectLifeWebServiceClient();
+                var result = client.GetRecords(App.User.Email).Result;
+                _records = result.Select(r => new DataPoint { Date = r.DateTime.Date.ToString("dd-MM-yyyy"), Weight = r.Weight });
+                return new ObservableCollection<DataPoint>(_records);
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Net;
 
 namespace perfectlife.test
 {
-    //Integration test - it hits real web service
+    //NOTE: Integration test - it hits real web service
     public class PerfectLifeWebServiceClientTest
     {
         [Fact]

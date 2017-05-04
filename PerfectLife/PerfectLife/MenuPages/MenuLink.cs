@@ -13,8 +13,8 @@ namespace PerfectLife.MenuPages
         {
             Text = text;
             Command = new Command(o => {
-                //App.MasterDetailPage.Detail = new NavigationPage(page);
-                //App.MasterDetailPage.IsPresented = false;
+                App.MasterDetailPage.Detail = new NavigationPage(page);
+                App.MasterDetailPage.IsPresented = false;
             });
         }
     }
