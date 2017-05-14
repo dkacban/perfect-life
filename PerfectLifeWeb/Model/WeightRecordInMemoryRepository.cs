@@ -16,5 +16,9 @@ namespace PerfectLifeWebService.Model
         {
             return _weightRecords.Where(r=>r.UserName == userName);
         }
+
+        public void DeleteRecords(string userName)
+        {
+        }
     }
 }

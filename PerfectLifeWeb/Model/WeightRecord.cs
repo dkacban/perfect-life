@@ -1,4 +1,7 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
 
 namespace PerfectLifeWebService.Model
 {
@@ -11,6 +14,8 @@ namespace PerfectLifeWebService.Model
             DateTime = DateTime.UtcNow;
         }
 
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string _id { get; set; }
         public string UserName { get; private set; }
         public int Weight { get; private set; }
         public DateTime DateTime { get; private set; }

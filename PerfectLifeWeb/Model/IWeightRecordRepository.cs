@@ -6,5 +6,6 @@ namespace PerfectLifeWebService.Model
     {
         void AddRecord(WeightRecord record);
         IEnumerable<WeightRecord> GetRecords(string userName);
+        void DeleteRecords(string userName);
     }
 }

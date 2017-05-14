@@ -19,7 +19,7 @@ namespace PerfectLifeWebService
         {
             //Add formatters to avoid HTTP 406 error
             services.AddMvcCore().AddJsonFormatters();
-            services.AddSingleton<IWeightRecordRepository, WeightRecordInMemoryRepository>();
+            services.AddSingleton<IWeightRecordRepository, WeightRecordMongoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
